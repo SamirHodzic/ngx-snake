@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BestScoreManager } from './app.storage.service'
 
 @Component({
 	selector: 'ngx-snake',
@@ -9,12 +10,19 @@ import { Component, OnInit } from '@angular/core';
 	}
 })
 export class AppComponent implements OnInit {
+	constructor(
+		private bestScoreService: BestScoreManager
+	) { }
+
+	public best_score = this.bestScoreService.retrieve();
+
 	public BOARD_SIZE = 18;
 	public board = [];
 	public interval: any;
 	public tempDirection: any;
 	public isGameOver: any;
 	public gameStarted = false;
+	public newBestScore = false;
 	private score = 0;
 
 	public CONTROLS = {
@@ -135,9 +143,9 @@ export class AppComponent implements OnInit {
 			return this.resetFruit();
 		}
 
-		this.fruit = { 
-			x: x, 
-			y: y 
+		this.fruit = {
+			x: x,
+			y: y
 		};
 	}
 
@@ -159,6 +167,12 @@ export class AppComponent implements OnInit {
 		this.gameStarted = false;
 		let me = this;
 
+		if (this.score > this.best_score) {
+			this.bestScoreService.store(this.score);
+			this.best_score = this.score;
+			this.newBestScore = true;
+		}
+
 		setTimeout(function () {
 			me.isGameOver = false;
 		}, 500);
@@ -178,15 +192,16 @@ export class AppComponent implements OnInit {
 	}
 
 	newGame(): void {
-		if(this.gameStarted) return;
+		if (this.gameStarted) return;
+		this.newBestScore = false;
 		this.gameStarted = true;
 		this.score = 0;
 		this.tempDirection = this.CONTROLS.LEFT;
 		this.isGameOver = false;
 		this.interval = 150;
-		this.snake = { 
-			direction: this.CONTROLS.LEFT, 
-			parts: [] 
+		this.snake = {
+			direction: this.CONTROLS.LEFT,
+			parts: []
 		};
 
 		for (var i = 0; i < 3; i++) {

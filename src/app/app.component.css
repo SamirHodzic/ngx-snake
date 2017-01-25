@@ -1,11 +1,24 @@
 .game-header {
   color: #fff;
   padding: 5px 15px 5px 0px;
+  position: relative;
 }
 
-.game-header>.score {
-  float: right;
+.game-header>.score-block {
   display: inline-block;
+}
+
+.score-block>.score {
+  position: absolute;
+  right: 8px;
+  top: -5px;
+}
+
+.score-block>.best-score {
+  position: absolute;
+  right: 8px;
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 .game-header>.logo {
@@ -44,4 +57,14 @@
 .start-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.new-best-score {
+  animation: glow .5s infinite alternate;
+}
+
+@keyframes glow {
+  to {
+    text-shadow: 0 0 15px #ffff00;
+  }
 }

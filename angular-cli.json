@@ -5,7 +5,7 @@
   },
   "apps": [{
     "root": "src",
-    "outDir": "dist",
+    "outDir": "docs",
     "index": "index.html",
     "main": "main.ts",
     "tsconfig": "tsconfig.json",
