@@ -1,0 +1,10 @@
+<div class="game-container">
+  <div class="game-header">
+    <h3 class="logo">ngx-Snake</h3>
+    <h3 class="score">Score: {{score}}</h3>
+  </div>
+  <div class="row" *ngFor="let column of board; let i = index;">
+    <div class="column" [ngStyle]="{'background-color': setColors(i, j)}" *ngFor="let row of column; let j = index"></div>
+  </div>
+  <div class="start-button" (click)="newGame()">Start Game</div>
+</div>
