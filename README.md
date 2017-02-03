@@ -15,7 +15,7 @@ UP, DOWN, LEFT, RIGHT - to control snake
 **Note**: Require Node 4+ together with Npm 3+, also be sure to install [Angular-CLI](https://github.com/angular/angular-cli)
 
 ```bash
-$ npm install -g angular-cli
+$ npm install -g @angular/cli@latest
 ```
 
 Clone this repo in your favourite shell:
