@@ -205,7 +205,7 @@ export class AppComponent implements OnInit {
 		};
 
 		for (var i = 0; i < 3; i++) {
-			this.snake.parts.push({ x: 10 + i, y: 10 });
+			this.snake.parts.push({ x: 8 + i, y: 8 });
 		}
 
 		this.resetFruit();
