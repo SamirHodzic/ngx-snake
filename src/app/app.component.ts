@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
 	public gameStarted = false;
 	public newBestScore = false;
 	private score = 0;
+	private showMenuChecker: boolean = false;
+	public default_mode: string = 'classic';
 
 	public CONTROLS = {
 		LEFT: 37,
@@ -89,7 +91,15 @@ export class AppComponent implements OnInit {
 		let newHead = this.repositionHead();
 		let me = this;
 
-		if (this.boardCollision(newHead) || this.selfCollision(newHead)) {
+		if (this.default_mode === 'classic') {
+			if (this.boardCollision(newHead)) {
+				return this.gameOver();
+			}
+		} else if (this.default_mode === 'no_walls') {
+			this.noWallsTransition(newHead);
+		}
+
+		if (this.selfCollision(newHead)) {
 			return this.gameOver();
 		} else if (this.fruitCollision(newHead)) {
 			this.eatFruit();
@@ -121,6 +131,20 @@ export class AppComponent implements OnInit {
 			newHead.y += 1;
 		}
 		return newHead;
+	}
+
+	noWallsTransition(part: any): void {
+		if (part.x === this.BOARD_SIZE) {
+			part.x = 0;
+		} else if (part.x === -1) {
+			part.x = this.BOARD_SIZE - 1;
+		}
+
+		if (part.y === this.BOARD_SIZE) {
+			part.y = 0;
+		} else if (part.y === -1) {
+			part.y = this.BOARD_SIZE - 1;
+		}
 	}
 
 	boardCollision(part: any): any {
@@ -191,8 +215,13 @@ export class AppComponent implements OnInit {
 		}
 	}
 
-	newGame(): void {
-		if (this.gameStarted) return;
+	showMenu(): void {
+		this.showMenuChecker = !this.showMenuChecker;
+	}
+
+	newGame(mode: string): void {
+		this.default_mode = mode;
+		this.showMenuChecker = false;
 		this.newBestScore = false;
 		this.gameStarted = true;
 		this.score = 0;

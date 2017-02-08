@@ -2,7 +2,7 @@
 
 ngx-Snake is simple Snake arcade game implemented in Angular 2 (latest 2.4.5)
 
-#### Demo (Updated: 25/01/2017)
+#### Demo (Updated: 08/02/2017)
 
 https://samirhodzic.github.io/ngx-snake/ 
 
@@ -39,6 +39,11 @@ Visit http://localhost:4200 and play!
 
 ## TODO
 * ~~Save Best Score~~
-* Multiple modes with obstacles
+* Multiple modes (in progress)
+	* ~~Classic~~
+	* ~~No Walls~~
+	* Obstacles
+	* Multiple Fruits
 * Update UI
+	* Make it responsive
 * ...

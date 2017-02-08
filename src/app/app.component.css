@@ -55,8 +55,31 @@
 }
 
 .start-button:hover {
-  opacity: 0.5;
+  opacity: 0.65;
   cursor: pointer;
+}
+
+.start-button.new-game-button {
+  margin: 0 105px 4px 105px;
+}
+
+.disable-clicks {
+  pointer-events: none;
+}
+
+.new-game-menu {
+  position: absolute;
+  top: 225px;
+  text-align: center;
+  width: 468px;
+}
+
+.new-game-menu-label {
+  font-weight: bold;
+  font-size: 1.17em;
+  margin-bottom: 13px;
+  display: block;
+  color: #47565A;
 }
 
 .new-best-score {
