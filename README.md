@@ -46,4 +46,5 @@ Visit http://localhost:4200 and play!
 	* Multiple Fruits
 * Update UI
 	* Make it responsive
+* Write tests
 * ...

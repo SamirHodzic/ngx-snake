@@ -18,14 +18,14 @@ export class AppComponent {
 
 	public best_score = this.bestScoreService.retrieve();
 
-	public BOARD_SIZE = 18;
+	public BOARD_SIZE: number = 18;
 	public board = [];
-	public interval: any;
-	public tempDirection: any;
-	public isGameOver: any;
-	public gameStarted = false;
-	public newBestScore = false;
-	private score = 0;
+	public interval: number;
+	public tempDirection: number;
+	public isGameOver: boolean = false;
+	public gameStarted: boolean = false;
+	public newBestScore: boolean = false;
+	private score: number = 0;
 	private showMenuChecker: boolean = false;
 	public default_mode: string = 'classic';
 
@@ -71,7 +71,7 @@ export class AppComponent {
 		}
 	}
 
-	setColors(col: number, row: number): any {
+	setColors(col: number, row: number): string {
 		if (this.isGameOver) {
 			return this.COLORS.GAME_OVER;
 		} else if (this.fruit.x == row && this.fruit.y == col) {
@@ -111,7 +111,7 @@ export class AppComponent {
 
 		this.snake.direction = this.tempDirection;
 
-		setTimeout(function () {
+		setTimeout(() => {
 			me.updatePositions();
 		}, this.interval);
 	}
@@ -145,15 +145,15 @@ export class AppComponent {
 		}
 	}
 
-	boardCollision(part: any): any {
+	boardCollision(part: any): boolean {
 		return part.x === this.BOARD_SIZE || part.x === -1 || part.y === this.BOARD_SIZE || part.y === -1;
 	}
 
-	selfCollision(part: any): any {
+	selfCollision(part: any): boolean {
 		return this.board[part.y][part.x] === true;
 	}
 
-	fruitCollision(part: any): any {
+	fruitCollision(part: any): boolean {
 		return part.x === this.fruit.x && part.y === this.fruit.y;
 	}
 
@@ -195,7 +195,7 @@ export class AppComponent {
 			this.newBestScore = true;
 		}
 
-		setTimeout(function () {
+		setTimeout(() => {
 			me.isGameOver = false;
 		}, 500);
 
@@ -218,7 +218,7 @@ export class AppComponent {
 	}
 
 	newGame(mode: string): void {
-		this.default_mode = mode;
+		this.default_mode = mode || 'classic';
 		this.showMenuChecker = false;
 		this.newBestScore = false;
 		this.gameStarted = true;
