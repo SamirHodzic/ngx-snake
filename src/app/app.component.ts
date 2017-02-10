@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BestScoreManager } from './app.storage.service'
 
 @Component({
@@ -9,10 +9,12 @@ import { BestScoreManager } from './app.storage.service'
 		'(document:keydown)': 'handleKeyboardEvents($event)'
 	}
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 	constructor(
 		private bestScoreService: BestScoreManager
-	) { }
+	) {
+		this.setBoard();
+	}
 
 	public best_score = this.bestScoreService.retrieve();
 
@@ -56,10 +58,6 @@ export class AppComponent implements OnInit {
 		x: -1,
 		y: -1
 	};
-
-	ngOnInit() {
-		this.setBoard();
-	}
 
 	handleKeyboardEvents(e: KeyboardEvent) {
 		if (e.keyCode == this.CONTROLS.LEFT && this.snake.direction !== this.CONTROLS.RIGHT) {
