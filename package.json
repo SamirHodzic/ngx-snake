@@ -20,17 +20,17 @@
     "@angular/platform-browser-dynamic": "^2.4.9",
     "@angular/router": "^3.4.9",
     "core-js": "^2.4.1",
-    "rxjs": "^5.0.3",
-    "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "rxjs": "^5.2.0",
+    "ts-helpers": "^1.1.2",
+    "zone.js": "^0.8.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.4.9",
-    "@types/node": "^6.0.42",
+    "@types/node": "^7.0.8",
     "@angular/cli": "^1.0.0-rc.1",
     "codelyzer": "~2.0.0-beta.4",
-    "ts-node": "1.2.1",
-    "tslint": "^4.0.2",
-    "typescript": "~2.1.5"
+    "ts-node": "^2.1.0",
+    "tslint": "^4.5.1",
+    "typescript": "~2.2.1"
   }
 }
