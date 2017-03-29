@@ -9,6 +9,7 @@
     "index": "index.html",
     "main": "main.ts",
     "tsconfig": "tsconfig.json",
+    "polyfills": "polyfills.ts",
     "prefix": "app",
     "mobile": false,
     "styles": [

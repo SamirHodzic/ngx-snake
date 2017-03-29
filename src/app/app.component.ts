@@ -17,16 +17,17 @@ export class AppComponent {
 		this.setBoard();
 	}
 
-	private best_score = this.bestScoreService.retrieve();
-	private board = [];
-	private score: number = 0;
 	private interval: number;
 	private tempDirection: number;
 	private default_mode: string = 'classic';
 	private isGameOver: boolean = false;
-	private gameStarted: boolean = false;
-	private newBestScore: boolean = false;
-	private showMenuChecker: boolean = false;
+
+	public board = [];
+	public score: number = 0;
+	public showMenuChecker: boolean = false;
+	public gameStarted: boolean = false;
+	public newBestScore: boolean = false;
+	public best_score = this.bestScoreService.retrieve();
 
 	private snake = {
 		direction: CONTROLS.LEFT,
