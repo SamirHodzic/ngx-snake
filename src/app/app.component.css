@@ -69,11 +69,11 @@
 
 .new-game-menu {
   position: absolute;
-  top: 165px;
+  top: 79px;
   text-align: center;
   width: 468px;
   background: rgba(0, 0, 0, 0.15);
-  padding: 50px 0 50px 0;
+  padding: 135px 0 135px 0;
 }
 
 .new-game-menu-label {
