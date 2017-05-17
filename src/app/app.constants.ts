@@ -15,3 +15,9 @@ export const COLORS = {
 	BOARD: '#86B5BD',
 	OBSTACLE: '#383522'
 };
+
+export const GAME_MODES = {
+	classic: 'Classic',
+	no_walls: 'No Walls',
+	obstacles: 'Obstacles'
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BestScoreManager } from './app.storage.service';
-import { CONTROLS, COLORS, BOARD_SIZE } from './app.constants';
+import { CONTROLS, COLORS, BOARD_SIZE, GAME_MODES } from './app.constants';
 
 @Component({
 	selector: 'ngx-snake',
@@ -22,6 +22,8 @@ export class AppComponent {
 	private default_mode: string = 'classic';
 	private isGameOver: boolean = false;
 
+	public all_modes = GAME_MODES;
+	public getKeys = Object.keys;
 	public board = [];
 	public obstacles = [];
 	public score: number = 0;
@@ -67,12 +69,7 @@ export class AppComponent {
 		} else if (this.board[col][row] === true) {
 			return COLORS.BODY;
 		} else if (this.default_mode === 'obstacles') {
-			let res = false;
-			this.obstacles.forEach((val) => {
-				if (val.x === row && val.y === col)
-					res = true;
-			});
-			if (res) return COLORS.OBSTACLE;
+			if (this.checkObstacles(row, col)) return COLORS.OBSTACLE;
 		}
 
 		return COLORS.BOARD;
@@ -157,14 +154,19 @@ export class AppComponent {
 		});
 	}
 
-	obstacleCollision(part: any): boolean {
+	checkObstacles(x, y): boolean {
 		let res = false;
+
 		this.obstacles.forEach((val) => {
-			if (val.x === part.x && val.y === part.y)
+			if (val.x === x && val.y === y)
 				res = true;
 		});
 
 		return res;
+	}
+
+	obstacleCollision(part: any): boolean {
+		return this.checkObstacles(part.x, part.y);
 	}
 
 	boardCollision(part: any): boolean {
@@ -183,7 +185,7 @@ export class AppComponent {
 		let x = this.randomNumber();
 		let y = this.randomNumber();
 
-		if (this.board[y][x] === true) {
+		if (this.board[y][x] === true || this.checkObstacles(x, y)) {
 			return this.resetFruit();
 		}
 
