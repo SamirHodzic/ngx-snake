@@ -69,17 +69,18 @@
 
 .new-game-menu {
   position: absolute;
-  top: 225px;
+  top: 165px;
   text-align: center;
   width: 468px;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 50px 0 50px 0;
 }
 
 .new-game-menu-label {
-  font-weight: bold;
   font-size: 1.17em;
   margin-bottom: 13px;
   display: block;
-  color: #47565A;
+  color: #fff;
 }
 
 .new-best-score {

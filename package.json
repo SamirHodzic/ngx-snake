@@ -1,6 +1,6 @@
 {
   "name": "ngx-snake",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -26,10 +26,10 @@
   "devDependencies": {
     "@angular/compiler-cli": "^4.0.0",
     "@types/node": "^7.0.8",
-    "@angular/cli": "^1.0.0",
-    "codelyzer": "~2.0.0",
-    "ts-node": "^2.1.0",
-    "tslint": "^4.5.1",
-    "typescript": "~2.2.1"
+    "@angular/cli": "^1.0.3",
+    "codelyzer": "~3.0.1",
+    "ts-node": "^3.0.4",
+    "tslint": "^5.2.0",
+    "typescript": "~2.3.2"
   }
 }

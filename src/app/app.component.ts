@@ -23,6 +23,7 @@ export class AppComponent {
 	private isGameOver: boolean = false;
 
 	public board = [];
+	public obstacles = [];
 	public score: number = 0;
 	public showMenuChecker: boolean = false;
 	public gameStarted: boolean = false;
@@ -47,11 +48,11 @@ export class AppComponent {
 	handleKeyboardEvents(e: KeyboardEvent) {
 		if (e.keyCode == CONTROLS.LEFT && this.snake.direction !== CONTROLS.RIGHT) {
 			this.tempDirection = CONTROLS.LEFT;
-		} else if (e.keyCode == CONTROLS.UP && this.snake.direction !== CONTROLS.DOWN) {
+		} else if (e.keyCode === CONTROLS.UP && this.snake.direction !== CONTROLS.DOWN) {
 			this.tempDirection = CONTROLS.UP;
-		} else if (e.keyCode == CONTROLS.RIGHT && this.snake.direction !== CONTROLS.LEFT) {
+		} else if (e.keyCode === CONTROLS.RIGHT && this.snake.direction !== CONTROLS.LEFT) {
 			this.tempDirection = CONTROLS.RIGHT;
-		} else if (e.keyCode == CONTROLS.DOWN && this.snake.direction !== CONTROLS.UP) {
+		} else if (e.keyCode === CONTROLS.DOWN && this.snake.direction !== CONTROLS.UP) {
 			this.tempDirection = CONTROLS.DOWN;
 		}
 	}
@@ -59,12 +60,19 @@ export class AppComponent {
 	setColors(col: number, row: number): string {
 		if (this.isGameOver) {
 			return COLORS.GAME_OVER;
-		} else if (this.fruit.x == row && this.fruit.y == col) {
+		} else if (this.fruit.x === row && this.fruit.y === col) {
 			return COLORS.FRUIT;
-		} else if (this.snake.parts[0].x == row && this.snake.parts[0].y == col) {
+		} else if (this.snake.parts[0].x === row && this.snake.parts[0].y === col) {
 			return COLORS.HEAD;
 		} else if (this.board[col][row] === true) {
 			return COLORS.BODY;
+		} else if (this.default_mode === 'obstacles') {
+			let res = false;
+			this.obstacles.forEach((val) => {
+				if (val.x === row && val.y === col)
+					res = true;
+			});
+			if (res) return COLORS.OBSTACLE;
 		}
 
 		return COLORS.BOARD;
@@ -80,6 +88,11 @@ export class AppComponent {
 			}
 		} else if (this.default_mode === 'no_walls') {
 			this.noWallsTransition(newHead);
+		} else if (this.default_mode === 'obstacles') {
+			this.noWallsTransition(newHead);
+			if (this.obstacleCollision(newHead)) {
+				return this.gameOver();
+			}
 		}
 
 		if (this.selfCollision(newHead)) {
@@ -130,6 +143,30 @@ export class AppComponent {
 		}
 	}
 
+	addObstacles(): void {
+		let x = this.randomNumber();
+		let y = this.randomNumber();
+
+		if (this.board[y][x] === true || y === 8) {
+			return this.addObstacles();
+		}
+
+		this.obstacles.push({
+			x: x,
+			y: y
+		});
+	}
+
+	obstacleCollision(part: any): boolean {
+		let res = false;
+		this.obstacles.forEach((val) => {
+			if (val.x === part.x && val.y === part.y)
+				res = true;
+		});
+
+		return res;
+	}
+
 	boardCollision(part: any): boolean {
 		return part.x === BOARD_SIZE || part.x === -1 || part.y === BOARD_SIZE || part.y === -1;
 	}
@@ -143,8 +180,8 @@ export class AppComponent {
 	}
 
 	resetFruit(): void {
-		var x = Math.floor(Math.random() * BOARD_SIZE);
-		var y = Math.floor(Math.random() * BOARD_SIZE);
+		let x = this.randomNumber();
+		let y = this.randomNumber();
 
 		if (this.board[y][x] === true) {
 			return this.resetFruit();
@@ -187,6 +224,10 @@ export class AppComponent {
 		this.setBoard();
 	}
 
+	randomNumber(): any {
+		return Math.floor(Math.random() * BOARD_SIZE);
+	}
+
 	setBoard(): void {
 		this.board = [];
 
@@ -218,6 +259,14 @@ export class AppComponent {
 
 		for (var i = 0; i < 3; i++) {
 			this.snake.parts.push({ x: 8 + i, y: 8 });
+		}
+
+		if (mode === 'obstacles') {
+			this.obstacles = [];
+			let j = 1;
+			do {
+				this.addObstacles();
+			} while (j++ < 9);
 		}
 
 		this.resetFruit();
