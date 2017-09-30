@@ -22,5 +22,4 @@ export class BestScoreManager {
 	private parse() {
 		return JSON.parse(localStorage.getItem(this.ngxSnake));
 	}
-
 }
