@@ -10,3 +10,11 @@
 body {
   background-color: #fff;
 }
+
+@media screen and (max-width: 730px) {
+
+  .github-banner{
+    display: none;
+  }
+
+}
