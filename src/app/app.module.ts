@@ -5,15 +5,15 @@ import { AppComponent } from './app.component';
 import { BestScoreManager } from './app.storage.service'
 
 @NgModule({
-	declarations: [
-		AppComponent
-	],
-	imports: [
-		BrowserModule
-	],
-	providers: [
-		BestScoreManager
-	],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [
+    BestScoreManager
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

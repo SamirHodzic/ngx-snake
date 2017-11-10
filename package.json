@@ -5,7 +5,8 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve"
+    "start": "ng serve",
+    "lint": "tslint \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
