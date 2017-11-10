@@ -1,6 +1,5 @@
 {
   "project": {
-    "version": "1.0.0",
     "name": "ngx-snake"
   },
   "apps": [{
@@ -8,10 +7,9 @@
     "outDir": "dist",
     "index": "index.html",
     "main": "main.ts",
-    "tsconfig": "tsconfig.json",
     "polyfills": "polyfills.ts",
+    "tsconfig": "tsconfig.json",
     "prefix": "app",
-    "mobile": false,
     "styles": [
       "styles.css"
     ],
@@ -19,10 +17,12 @@
   }],
   "defaults": {
     "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
+    "component": {
+      "inlineStyle": false,
+      "inlineTemplate": false
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }
