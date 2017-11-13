@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BestScoreManager {
@@ -10,13 +10,13 @@ export class BestScoreManager {
   }
 
   public retrieve() {
-    let storedToken = this.parse();
-    if (!storedToken) {
+    let storage = this.parse();
+    if (!storage) {
       this.store(0);
-      storedToken = this.parse();
+      storage = this.parse();
     }
 
-    return storedToken.best_score;
+    return storage.best_score;
   }
 
   private parse() {

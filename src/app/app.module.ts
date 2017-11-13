@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BestScoreManager } from './app.storage.service'
+import { BestScoreManager } from './app.storage.service';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,8 @@ import { BestScoreManager } from './app.storage.service'
   providers: [
     BestScoreManager
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

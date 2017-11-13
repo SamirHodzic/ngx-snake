@@ -96,43 +96,36 @@
 }
 
 @media screen and (max-width: 480px) {
-  
   .game-container {
     width: 100%;
   }
-
   .column {
     width: 5.55%;
     height: 0;
     padding-bottom: 5.06%;
     box-sizing: border-box;
   }
-
   .row {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex; 
-    display: flex;  
+    display: -webkit-flex;
+    display: flex;
     height: 0;
     padding-bottom: 5.5%;
   }
-
   .new-game-menu {
     width: 100%;
     top: 8px;
     padding-top: 30%;
     font-size: 80%;
   }
-
-  .start-button.new-game-button{
+  .start-button.new-game-button {
     margin: 0 15% 1% 15%;
   }
-
   @-moz-document url-prefix() {
     .column {
       min-height: 5.5vw;
     }
   }
-  
 }

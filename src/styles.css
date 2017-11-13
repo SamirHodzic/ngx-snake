@@ -12,9 +12,7 @@ body {
 }
 
 @media screen and (max-width: 730px) {
-
-  .github-banner{
+  .github-banner {
     display: none;
   }
-
 }

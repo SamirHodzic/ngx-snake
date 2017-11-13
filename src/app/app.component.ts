@@ -68,10 +68,8 @@ export class AppComponent {
       return COLORS.HEAD;
     } else if (this.board[col][row] === true) {
       return COLORS.BODY;
-    } else if (this.default_mode === 'obstacles') {
-      if (this.checkObstacles(row, col)) {
-        return COLORS.OBSTACLE;
-      }
+    } else if (this.default_mode === 'obstacles' && this.checkObstacles(row, col)) {
+      return COLORS.OBSTACLE;
     }
 
     return COLORS.BOARD;
@@ -81,10 +79,8 @@ export class AppComponent {
     let newHead = this.repositionHead();
     let me = this;
 
-    if (this.default_mode === 'classic') {
-      if (this.boardCollision(newHead)) {
-        return this.gameOver();
-      }
+    if (this.default_mode === 'classic' && this.boardCollision(newHead)) {
+      return this.gameOver();
     } else if (this.default_mode === 'no_walls') {
       this.noWallsTransition(newHead);
     } else if (this.default_mode === 'obstacles') {
@@ -125,6 +121,7 @@ export class AppComponent {
     } else if (this.tempDirection === CONTROLS.DOWN) {
       newHead.y += 1;
     }
+
     return newHead;
   }
 
