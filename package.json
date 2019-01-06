@@ -1,12 +1,12 @@
 {
   "name": "ngx-snake",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
-    "lint": "tslint \"src/**/*.ts\""
+    "lint": "tslint \"src/**/*.ts\"",
+    "gh-deploy": "ng build --prod && npx angular-cli-ghpages"
   },
   "repository": {
     "type": "git",
@@ -14,21 +14,24 @@
   },
   "private": false,
   "dependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/common": "^7.0.0",
+    "@angular/compiler": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/platform-browser": "^7.0.0",
+    "@angular/platform-browser-dynamic": "^7.0.0",
     "core-js": "^2.5.1",
-    "zone.js": "~0.8.4"
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^5.0.0",
-    "@types/node": "^8.0.51",
-    "@angular/cli": "^1.5.0",
-    "codelyzer": "^4.0.1",
-    "ts-node": "^3.3.0",
+    "@angular-devkit/build-angular": "~0.11.0",
+    "@angular/compiler-cli": "^7.0.0",
+    "angular-cli-ghpages": "^0.5.3",
+    "@types/node": "^10.0.51",
+    "@angular/cli": "^7.0.0",
+    "codelyzer": "^4.5.0",
+    "ts-node": "^4.0.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.3"
+    "typescript": "~3.1.1"
   }
 }

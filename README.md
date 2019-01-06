@@ -4,9 +4,9 @@
 [![Dependencies][dependencies]][dependencies-url]
 [![Dev Dependencies][dev-dependencies]][dev-dependencies-url]
 
-> ngx-Snake is simple Snake arcade game implemented in Angular 5 (latest 5.0.0)
+> ngx-Snake is simple Snake arcade game implemented in Angular 7 (latest 7.1.4)
 
-#### Demo (Updated: 13/11/2017)
+#### Demo (Updated: 06/01/2019)
 
 https://samirhodzic.github.io/ngx-snake/ 
 
@@ -16,7 +16,7 @@ UP, DOWN, LEFT, RIGHT - to control snake
 
 ## Setup
 
-**Note**: Require Node 4+ together with Npm 3+, also be sure to install [Angular-CLI](https://github.com/angular/angular-cli) (latest 1.5.0)
+**Note**: Require Node 4+ together with Npm 3+, also be sure to install [Angular-CLI](https://github.com/angular/angular-cli) (latest 7.1.4)
 
 ```bash
 $ npm install -g @angular/cli@latest
@@ -43,7 +43,7 @@ Visit http://localhost:4200 and play!
 
 ## TODO
 * ~~Save Best Score~~
-* Multiple modes (in progress)
+* Multiple modes
 	* ~~Classic~~
 	* ~~No Walls~~
 	* ~~Obstacles~~
