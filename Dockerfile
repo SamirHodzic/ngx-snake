@@ -18,7 +18,7 @@ FROM nginx:alpine
 
 #!/bin/sh
 
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./conf/default.conf /etc/nginx/conf.d/default.conf
 #COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
 
 ## Remove default nginx index page
