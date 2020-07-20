@@ -5,14 +5,13 @@ COPY package.json package-lock.json ./
 
 # Install the dependencies and make the folder
 RUN npm install && mkdir /app-ui && mv ./node_modules ./app-ui
-RUN npm install @angular/cli -g
 
 WORKDIR /app-ui
 
 COPY . .
 
 # Build the project and copy the files
-RUN ng build --prod
+RUN npm run build --prod
 
 
 FROM nginx:alpine
