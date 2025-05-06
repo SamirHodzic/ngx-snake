@@ -1,9 +1,5 @@
 # ngx-Snake
 
-[![build-url][build-url-svg]][build-url]
-[![Dependencies][dependencies]][dependencies-url]
-[![Dev Dependencies][dev-dependencies]][dev-dependencies-url]
-
 > ngx-Snake is simple Snake arcade game implemented in Angular 7 (latest 7.1.4)
 
 #### Demo (Updated: 06/01/2019)
@@ -53,10 +49,3 @@ Visit http://localhost:4200 and play!
 	* Introduce controls for mobile devices
 * Write tests
 * ...
-
-[dependencies]: https://david-dm.org/samirhodzic/ngx-snake.svg
-[dependencies-url]: https://david-dm.org/samirhodzic/ngx-snake
-[dev-dependencies]: https://david-dm.org/samirhodzic/ngx-snake/dev-status.svg
-[dev-dependencies-url]: https://david-dm.org/samirhodzic/ngx-snake?type=dev
-[build-url]: https://travis-ci.org/SamirHodzic/ngx-snake
-[build-url-svg]: https://travis-ci.org/SamirHodzic/ngx-snake.svg?branch=master
